@@ -21,6 +21,7 @@
   (ok (default-to u0 (map-get? donors who)))
 )
 
+;; Read-only: Get the minimum donation amount
 (define-read-only (get-min-donation)
   (ok (var-get min-donation))
 )
