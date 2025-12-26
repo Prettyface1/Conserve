@@ -27,6 +27,9 @@
 (define-public (withdraw (amount uint) (recipient principal))
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
+    (asserts! (<= amount (var-get fund-balance)) ERR_INVALID_AMOUNT)
+    (try! (as-contract (stx-transfer? amount tx-sender recipient)))
+    (var-set fund-balance (- (var-get fund-balance) amount))
     (ok true)
   )
 )
