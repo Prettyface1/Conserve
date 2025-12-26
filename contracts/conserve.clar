@@ -23,3 +23,7 @@
     (ok true)
   )
 )
+
+(define-public (withdraw (amount uint) (recipient principal))
+  (ok true)
+)
