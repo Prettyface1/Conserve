@@ -50,6 +50,9 @@
   )
 )
 
+;; Public: Withdraw STX from the fund (Owner only)
+;; @param amount: The amount of STX to withdraw
+;; @param recipient: The address to receive the funds
 (define-public (withdraw (amount uint) (recipient principal))
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
