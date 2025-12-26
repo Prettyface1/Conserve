@@ -36,6 +36,8 @@
   (ok (var-get fund-balance))
 )
 
+;; Public: Deposit STX into the fund
+;; @param amount: The amount of STX to deposit
 (define-public (deposit (amount uint))
   (begin
     (asserts! (> amount u0) ERR_INVALID_AMOUNT)
