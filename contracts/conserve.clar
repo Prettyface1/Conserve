@@ -33,6 +33,7 @@
     (asserts! (>= amount (var-get min-donation)) ERR_MIN_DONATION)
     (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
     (var-set fund-balance (+ (var-get fund-balance) amount))
+    (map-set donors tx-sender (+ (default-to u0 (map-get? donors tx-sender)) amount))
     (print {event: "deposit", amount: amount, sender: tx-sender})
     (ok true)
   )
