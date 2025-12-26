@@ -26,6 +26,7 @@
   (ok (var-get min-donation))
 )
 
+;; Read-only: Get the current contract owner
 (define-read-only (get-owner)
   (ok (var-get contract-owner))
 )
