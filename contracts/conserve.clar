@@ -40,6 +40,7 @@
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
     (var-set contract-owner new-owner)
+    (print {event: "set-owner", new-owner: new-owner})
     (ok true)
   )
 )
