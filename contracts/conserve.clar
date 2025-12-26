@@ -1,5 +1,7 @@
-;; Conservation Fund Contract
-;; Clarity Version 4
+;; Conservation Fund Smart Contract
+;; This contract manages donations and fund distribution for conservation efforts
+;; Clarity Version: 4
+;; Author: Conserve Team
 
 (define-constant ERR_NOT_AUTHORIZED (err u100))
 (define-constant ERR_INVALID_AMOUNT (err u101))
