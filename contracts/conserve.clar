@@ -16,6 +16,7 @@
 ;; Map to track individual donor contributions
 (define-map donors principal uint)
 
+;; Read-only: Get total donation for a specific address
 (define-read-only (get-donation (who principal))
   (ok (default-to u0 (map-get? donors who)))
 )
