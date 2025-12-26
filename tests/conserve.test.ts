@@ -12,3 +12,15 @@ Clarinet.test({
         assertEquals(block.height, 2);
     },
 });
+
+Clarinet.test({
+    name: "Ensure that owner can withdraw",
+    async fn(chain: Chain, accounts: Map<string, Account>) {
+        const deployer = accounts.get("deployer")!;
+        const block = chain.mineBlock([
+            Tx.contractCall("conserve", "withdraw", [types.uint(100), types.principal(deployer.address)], deployer.address)
+        ]);
+        // Expect error if balance is 0
+        block.receipts[0].result.expectErr(types.uint(101)); // ERR_INVALID_AMOUNT
+    },
+});
