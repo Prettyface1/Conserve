@@ -75,6 +75,8 @@
   )
 )
 
+;; Public: Set the minimum donation amount (Owner only)
+;; @param amount: The new minimum donation amount
 (define-public (set-min-donation (amount uint))
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
