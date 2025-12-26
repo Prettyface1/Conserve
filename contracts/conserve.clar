@@ -35,5 +35,9 @@
 )
 
 (define-public (set-owner (new-owner principal))
-  (ok true)
+  (begin
+    (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
+    (var-set contract-owner new-owner)
+    (ok true)
+  )
 )
