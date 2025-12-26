@@ -24,7 +24,7 @@
 (define-public (deposit (amount uint))
   (begin
     (asserts! (> amount u0) ERR_INVALID_AMOUNT)
-    (asserts! (>= amount (var-get min-donation)) ERR_INVALID_AMOUNT)
+    (asserts! (>= amount (var-get min-donation)) ERR_MIN_DONATION)
     (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
     (var-set fund-balance (+ (var-get fund-balance) amount))
     (print {event: "deposit", amount: amount, sender: tx-sender})
