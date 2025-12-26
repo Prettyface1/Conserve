@@ -9,6 +9,12 @@
 (define-data-var contract-owner principal tx-sender)
 (define-data-var min-donation uint u1)
 
+(define-map donors principal uint)
+
+(define-read-only (get-donation (who principal))
+  (ok (default-to u0 (map-get? donors who)))
+)
+
 (define-read-only (get-min-donation)
   (ok (var-get min-donation))
 )
