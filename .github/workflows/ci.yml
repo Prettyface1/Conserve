@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Clarinet
+        run: |
+          wget https://github.com/hirosystems/clarinet/releases/download/v1.7.0/clarinet-linux-x64.tar.gz
+          tar -xvf clarinet-linux-x64.tar.gz
+          chmod +x clarinet
+          sudo mv clarinet /usr/local/bin
+      - name: Run Tests
+        run: clarinet test
