@@ -31,6 +31,7 @@
     (asserts! (<= amount (var-get fund-balance)) ERR_INVALID_AMOUNT)
     (try! (as-contract (stx-transfer? amount tx-sender recipient)))
     (var-set fund-balance (- (var-get fund-balance) amount))
+    (print {event: "withdraw", amount: amount, recipient: recipient})
     (ok true)
   )
 )
