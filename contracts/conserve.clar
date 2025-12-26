@@ -13,6 +13,7 @@
 (define-data-var contract-owner principal tx-sender) ; The current contract administrator
 (define-data-var min-donation uint u1) ; Minimum donation amount allowed
 
+;; Map to track individual donor contributions
 (define-map donors principal uint)
 
 (define-read-only (get-donation (who principal))
