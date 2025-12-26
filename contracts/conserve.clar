@@ -64,6 +64,8 @@
   )
 )
 
+;; Public: Transfer ownership of the contract (Owner only)
+;; @param new-owner: The address of the new owner
 (define-public (set-owner (new-owner principal))
   (begin
     (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
