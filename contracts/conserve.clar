@@ -31,6 +31,7 @@
   (ok (var-get contract-owner))
 )
 
+;; Read-only: Get the current fund balance
 (define-read-only (get-balance)
   (ok (var-get fund-balance))
 )
