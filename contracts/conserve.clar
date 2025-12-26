@@ -3,6 +3,7 @@
 
 (define-constant ERR_NOT_AUTHORIZED (err u100))
 (define-constant ERR_INVALID_AMOUNT (err u101))
+(define-constant ERR_MIN_DONATION (err u102))
 
 (define-data-var fund-balance uint u0)
 (define-data-var contract-owner principal tx-sender)
