@@ -49,3 +49,12 @@
     (ok true)
   )
 )
+
+(define-public (set-min-donation (amount uint))
+  (begin
+    (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
+    (var-set min-donation amount)
+    (print {event: "set-min-donation", amount: amount})
+    (ok true)
+  )
+)
