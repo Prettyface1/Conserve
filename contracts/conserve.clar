@@ -25,5 +25,8 @@
 )
 
 (define-public (withdraw (amount uint) (recipient principal))
-  (ok true)
+  (begin
+    (asserts! (is-eq tx-sender (var-get contract-owner)) ERR_NOT_AUTHORIZED)
+    (ok true)
+  )
 )
