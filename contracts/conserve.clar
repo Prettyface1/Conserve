@@ -14,3 +14,12 @@
 (define-read-only (get-balance)
   (ok (var-get fund-balance))
 )
+
+(define-public (deposit (amount uint))
+  (begin
+    (asserts! (> amount u0) ERR_INVALID_AMOUNT)
+    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (var-set fund-balance (+ (var-get fund-balance) amount))
+    (ok true)
+  )
+)
