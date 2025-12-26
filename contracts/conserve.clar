@@ -33,3 +33,7 @@
     (ok true)
   )
 )
+
+(define-public (set-owner (new-owner principal))
+  (ok true)
+)
