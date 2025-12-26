@@ -6,6 +6,11 @@
 
 (define-data-var fund-balance uint u0)
 (define-data-var contract-owner principal tx-sender)
+(define-data-var min-donation uint u1)
+
+(define-read-only (get-min-donation)
+  (ok (var-get min-donation))
+)
 
 (define-read-only (get-owner)
   (ok (var-get contract-owner))
