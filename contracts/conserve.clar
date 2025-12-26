@@ -8,9 +8,10 @@
 (define-constant ERR_INVALID_AMOUNT (err u101)) ;; Amount is 0 or invalid
 (define-constant ERR_MIN_DONATION (err u102))   ;; Amount below minimum
 
-(define-data-var fund-balance uint u0)
-(define-data-var contract-owner principal tx-sender)
-(define-data-var min-donation uint u1)
+;; Data Variables
+(define-data-var fund-balance uint u0) ; Tracks total fund balance
+(define-data-var contract-owner principal tx-sender) ; The current contract administrator
+(define-data-var min-donation uint u1) ; Minimum donation amount allowed
 
 (define-map donors principal uint)
 
